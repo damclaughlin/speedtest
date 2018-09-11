@@ -11,7 +11,7 @@ var dlStatus = '' // download speed in megabit/s with 2 decimal digits
 var ulStatus = '' // upload speed in megabit/s with 2 decimal digits
 var pingStatus = '' // ping in milliseconds with 2 decimal digits
 var jitterStatus = '' // jitter in milliseconds with 2 decimal digits
-var clientIp = '' // client's IP address as reported by getIP.php
+var clientIp = 'Internal' // client's IP address as reported by getIP.php
 var dlProgress = 0 //progress of download test 0-1
 var ulProgress = 0 //progress of upload test 0-1
 var pingProgress = 0 //progress of ping+jitter test 0-1
@@ -22,7 +22,8 @@ function twarn(s){log+=Date.now()+' WARN: '+s+'\n'; console.warn(s)}
 
 // test settings. can be overridden by sending specific values with the start command
 var settings = {
-  test_order: "IP_D_U", //order in which tests will be performed as a string. D=Download, U=Upload, P=Ping+Jitter, I=IP, _=1 second delay
+  //test_order: "IP_D_U", //order in which tests will be performed as a string. D=Download, U=Upload, P=Ping+Jitter, I=IP, _=1 second delay
+  test_order: "P_D_U", //order in which tests will be performed as a string. D=Download, U=Upload, P=Ping+Jitter, I=IP, _=1 second delay
   time_ul: 15, // duration of upload test in seconds
   time_dl: 15, // duration of download test in seconds
   time_ulGraceTime: 3, //time to wait in seconds before actually measuring ul speed (wait for buffers to fill)
